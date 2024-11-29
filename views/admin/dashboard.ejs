@@ -1,0 +1,115 @@
+<!-- <% include('../layouts/header.ejs') %>
+
+<h1>Dashboard</h1>
+
+<a href="/admin/new-user">Add New User</a><br><br>
+
+<table width="70%">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile number</th>
+        <th>Verified</th>
+        <th>Action</th>
+    </tr>
+
+    <% 
+        if(users.length > 0) {
+            for(let i = 0; i < users.length; i++) {
+                %>
+                <tr>
+                    <td><%= users[i].name %></td>
+                    <td><%= users[i].email %></td>
+                    <td><%= users[i].number %></td>
+                    <td><%
+                        if(users[i].is_verified == 0) {
+                            %>
+                                <p>Not Verified</p>
+                            <%
+                        }else {
+                            %>
+                            <p>Verified</p>
+                        <%
+                        }
+                        %></td>
+                        <td>
+                            <a href="/admin/edit-user?id=<%= users[i]._id %>">Edit</a>
+                            <a href="/admin/delete-user?id=<%= users[i]._id %>">Delete</a>
+                        </td>
+                </tr>
+                <%
+            }
+
+        } else {
+            %>
+            <tr>
+                <td colspan="5">Users Not Found</td>
+            </tr>
+            <%
+        }
+    %>
+
+</table>
+
+<a href="/admin/home">Go to Home</a>
+
+<% include('../layouts/footer.ejs') %> -->
+
+<% include('../layouts/header.ejs') %>
+
+<h1 style="margin-bottom: 20px;text-decoration: underline;">Dashboard</h1>
+
+<form>
+    <input type="name" name="search" placeholder="Search User"  style="padding: 10px; width: 300px;margin-left: 20%;">
+    <input type="submit" value="Search" style="padding: 10px; cursor: pointer;">    
+</form>
+
+<table style="width: 70%; border-collapse: collapse; text-align: center;">
+    <tr>
+        <th style="border: 1px solid #333; padding: 8px;">SI No.</th>
+        <th style="border: 1px solid #333; padding: 8px;">Name</th>
+        <th style="border: 1px solid #333; padding: 8px;">Email</th>
+        <th style="border: 1px solid #333; padding: 8px;">Mobile number</th>
+        <th style="border: 1px solid #333; padding: 8px;">Verified</th>
+        <th style="border: 1px solid #333; padding: 8px;">Action</th>
+    </tr>
+
+    <% if(users.length > 0) { %>
+        <% for(let i = 0; i < users.length; i++) { %>
+            <tr>
+                <td style="border: 1px solid #333; padding: 8px;"><%= i+1 %></td>
+                <td style="border: 1px solid #333; padding: 8px;"><%= users[i].name %></td>
+                <td style="border: 1px solid #333; padding: 8px;"><%= users[i].email %></td>
+                <td style="border: 1px solid #333; padding: 8px;"><%= users[i].number %></td>
+                <td style="border: 1px solid #333; padding: 8px;">
+                    <% if(users[i].is_verified == 0) { %>
+                        <p>Not Verified</p>
+                    <% } else { %>
+                        <p>Verified</p>
+                    <% } %>
+                </td>
+                <td style="border: 1px solid #333; padding: 8px;">
+                    <div style="display: inline;">
+                        <a href="/admin/edit-user?id=<%= users[i]._id %>" style="text-decoration: none; color: #007bff; margin-right: 10px;">Edit</a>
+                        <a href="/admin/delete-user?id=<%= users[i]._id %>" style="text-decoration: none; color: #dc3545;">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        <% } %>
+    <% } else { %>
+        <tr>
+            <td colspan="5" style="border: 1px solid #333; padding: 8px;">Users Not Found</td>
+        </tr>
+    <% } %>
+
+</table><br><br>
+
+<button style="margin-bottom: 10px;">
+    <a href="/admin/new-user" style="text-decoration: none; color: #007bff; display: block; padding: 10px;">Add New User</a>
+</button>
+
+<button style="margin-top: 20px;margin-left: 3em;">
+    <a href="/admin/home" style="text-decoration: none; color: #007bff; display: block; padding: 10px;">Go to Home</a>
+</button>
+
+<% include('../layouts/footer.ejs') %>

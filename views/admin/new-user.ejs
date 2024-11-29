@@ -1,0 +1,79 @@
+<!-- <% include('../layouts/header.ejs') %>
+
+<h1>Add New User</h1>
+
+<form action="/admin/new-user" method="post" >
+    <input type="text" name="name"  placeholder="Enter Name" required>
+    <br><br>
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <br><br>
+    <input type="number"  name="number" placeholder="Enter Mobile Number" required>
+    <br><br>
+    <input type="password" name="password" placeholder="Enter password" required>
+    <br><br>
+    <input type="newAdmin" name="newAdmin" placeholder="Enter 1 for make Admin" required>
+    <br><br>
+    <input type="submit" value="addUser">
+</form>
+
+<%
+if (typeof message !== 'undefined'){
+    %>
+    <p style="color: red;"><%=message %></p>
+    <%
+}
+%>
+
+<a href="/admin/dashboard">Go to Dashboard</a>
+
+<% include('../layouts/footer.ejs') %> -->
+
+
+<% include('../layouts/header.ejs') %>
+
+<div style="text-align: center;">
+
+    <h1 style="margin-bottom: 20px;text-decoration: underline;">Add New User</h1>
+
+    <%
+    if (typeof message !== 'undefined'){
+        %>
+        <p style="color: red;"><%= message %>*</p>
+        <%
+    }
+    %>
+
+    <form action="/admin/new-user" method="post" style="margin-bottom: 20px;">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter Name" style="padding: 10px; width: 300px;"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter Email" style="padding: 10px; width: 300px;"><br><br>
+
+        <label for="number">Mobile Number:</label><br>
+        <input type="number" id="number" name="number" placeholder="Enter Mobile Number" style="padding: 10px; width: 300px;"><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Enter Password" style="padding: 10px; width: 300px;"><br><br>
+
+        <!-- <label for="newAdmin">Admin (1 for Yes, 0 for No):</label><br>
+        <input type="number" id="newAdmin" name="newAdmin" placeholder="Enter 1 for make Admin" style="padding: 10px; width: 300px;"><br><br> -->
+
+        <label style="margin-right: 10px;"> Admin </label>
+        <input type="radio" name="newAdmin" value="1" style="margin-right: 40;">
+
+        <label style="margin-right: 10px;"> User </label>
+        <input type="radio" name="newAdmin" value="0" style="margin-right: 10px;">
+
+        <br><br>
+
+        <input type="submit" value="Add User" style="padding: 10px; background-color: #007bff; color: #fff; border: none; cursor: pointer;">
+    </form>
+
+    <a href="/admin/dashboard" style="text-decoration: none; color: #007bff; display: block;">Go to Dashboard</a>
+
+</div>
+
+
+<% include('../layouts/footer.ejs') %>
+

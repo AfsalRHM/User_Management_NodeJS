@@ -1,0 +1,47 @@
+<!-- <% include('../layouts/header.ejs') %>
+
+<h1 style="text-decoration: underline;">Admin Login Page</h1>
+
+<%
+
+    if (typeof message !== 'undefined') {
+        %>
+            <h3><%=message %></h3>
+        <%
+    }
+
+%>
+
+<form action="" method="post">
+    <input type="email" name="email" placeholder="Enter Email">
+    <br><br>
+    <input type="password" name="password" placeholder="Enter Password">
+    <br><br>
+    <input type="submit" value="Login">
+    <br><br>
+</form>
+
+<% include('../layouts/footer.ejs') %> -->
+
+<% include('../layouts/header.ejs') %>
+
+<div style="text-align: center;">
+    <h1 style="text-decoration: underline; color: #333; font-family: Arial, sans-serif;">Admin Login Page</h1>
+
+    <% if (typeof message !== 'undefined') { %>
+        <p style="color: red;" class="d-inline-flex p-2 " ><%= message %>*</p>
+    <% } %>
+
+    <form action="" method="post" style="margin: 0 auto; width: 300px;">
+        <label for="">Enter Your Email</label><br>
+        <input type="email" name="email" placeholder="Enter Email" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+        <br><br>
+        <label for="">Enter Your Password</label><br>
+        <input type="password" name="password" placeholder="Enter Password" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+        <br><br>
+        <input type="submit" value="Login" style="width: 100%; padding: 10px; background-color: #007bff; color: #fff; border: none; cursor: pointer;">
+        <br><br>
+    </form>
+</div>
+
+<% include('../layouts/footer.ejs') %>

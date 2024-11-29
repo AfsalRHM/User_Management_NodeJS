@@ -1,0 +1,50 @@
+<!-- <% include('../layouts/header.ejs') %>
+
+<h1 style="text-decoration: underline;">Admin Home Page</h1>
+
+<h2>Welcome <%= admin.name? admin.name: 'User'%></h2>
+
+<button style="margin-left: 5em;"><a style="text-decoration: none;" href="/admin/dashboard">Dashboard</a></button> <br><br>
+
+<table style="width: 50%;">
+
+    <tr>
+        <td><b>Email</b> : <%=admin.email %></td>
+    </tr>
+    <tr>
+        <td><b>Mobile Number</b> : <%=admin.number %></td>
+    </tr>
+
+</table><br>
+
+<button style="margin-left: 5.8em;"><a style="text-decoration: none;" href="/admin/logout"> Logout </a></button> <br><br>
+
+<% include('../layouts/footer.ejs') %> -->
+
+<% include('../layouts/header.ejs') %>
+
+<h1 style="text-decoration: underline;">Admin Home Page</h1>
+
+<h2>Welcome <%= admin.name ? admin.name : 'User' %></h2>
+
+<table style="width: 30%; border-collapse: collapse; text-align: center;">
+    <tr>
+        <td style="border: 1px solid #333; padding: 8px; "><b>Email</b></td>
+        <td style="border: 1px solid #333; padding: 8px;"> <%= admin.email %></td>
+
+    </tr>
+    <tr>
+        <td style="border: 1px solid #333; padding: 8px;"><b>Mobile Number</b>  </td>
+        <td style="border: 1px solid #333; padding: 8px;"> <%= admin.number %></td>
+    </tr>
+</table><br>
+
+<button style="margin-left: 5em; padding: 10px;">
+    <a href="/admin/dashboard" style="text-decoration: none; color: #007bff;">Dashboard</a>
+</button>
+
+<button style="margin-left: 9em; padding: 10px;">
+    <a href="/admin/logout" style="text-decoration: none; color: #dc3545;">Logout</a>
+</button>
+
+<% include('../layouts/footer.ejs') %>
